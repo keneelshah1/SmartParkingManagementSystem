@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+
+class Int
+{
+    int a;
+    public:
+    Int ();
+    Int (int a);
+    void display();
+    void add(Int,Int);
+};
+
+Int :: Int()
+{
+    a=0;
+}
+
+Int :: Int(int b)
+{
+    a=b;
+}
+
+void Int :: display()
+{
+    cout << "The Value is " << a << endl;
+}
+
+void Int :: add(Int i1, Int i2)
+{
+    a= i1.a+ i2.a;
+}
+
+int main()
+{
+    Int i1;
+    i1.display();
+
+    Int i2 (15);
+    i2.display();
+
+    Int i3;
+    i3.add(i2,i1);
+    i3.display();
+}

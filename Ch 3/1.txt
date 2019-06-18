@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+
+void zeroSmaller(int &r1,int &r2)
+{
+    if(r1<r2)
+        r1=0;
+    else
+        r2=0;
+    cout << "\nvariable 1 :" << r1 << endl;
+    cout << "\nvariable 2 :" << r2 << endl;
+}
+
+int main()
+{
+    int v1,v2,&r1=v1,&r2=v2;
+
+    cout << "enter values two values\n";    
+    cin >> v1 >> v2;   
+
+    zeroSmaller(r1,r2);
+
+    return 0;
+}

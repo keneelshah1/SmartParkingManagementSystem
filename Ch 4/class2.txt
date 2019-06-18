@@ -1,0 +1,47 @@
+#include <iostream>
+//#include <string>
+
+using namespace std;
+
+class TEST
+{
+    int TestCode,NoCandidates,CenterReqd;
+    string Description;
+    
+    int CALCNTR()
+    {
+        return (NoCandidates/100+1);
+    }
+
+    public:
+    void SCHEDULE()
+    {
+        cout << "ENTER TestCode : " << endl;
+        cin >> TestCode;
+
+        cout << "ENTER Description : " << endl;
+        cin >> Description;
+
+        cout << "ENTER NoCandidates : " << endl;
+        cin >> NoCandidates;
+
+        CenterReqd=CALCNTR();
+    }
+    void DISPTEST()
+    {
+        cout << "ENTER TestCode : " << TestCode << endl;
+
+        cout << "ENTER Description : " << Description << endl;
+
+        cout << "ENTER NoCandidates : " << NoCandidates << endl;
+
+        cout << "NO OF CENTRES : " << CenterReqd << endl;
+    }
+};
+
+int main()
+{
+    class TEST d1;
+    d1.SCHEDULE();
+    d1.DISPTEST();
+}

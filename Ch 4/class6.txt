@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+class multi
+{
+    int x,y;
+    public:
+    multi ();
+    multi (int a, int b);
+    multi (multi &a);
+    void show();
+    //multi (int a, int b);
+};
+void multi :: show()
+{
+    cout << "x " << x << endl;
+    cout << "y : " << y << endl;
+}
+multi :: multi ()
+{
+    x=0;
+    y=0;
+}
+
+multi :: multi (int a, int b)
+{
+    x=a;
+    y=b;
+}
+
+multi :: multi (multi &a)
+{
+    x=a.x;
+    y=a.y;
+}
+
+int main()
+{
+    multi p1;           //default
+    p1.show();
+    multi p2 (1,2);     //parameter
+    p2.show();
+    multi p3(p2);       //copy
+    p3.show();
+}

@@ -1,0 +1,83 @@
+#include <iostream>
+using namespace std;
+
+class Time
+{
+    int hours,minutes,seconds;
+    
+    public:
+    Time ();
+    Time (int,int,int);
+    void show_time();
+    void add(Time,Time);
+};
+
+Time :: Time()
+{
+    hours=0;
+    minutes=0;
+    seconds=0;
+}
+
+Time :: Time(int h,int m,int s)
+{
+    hours=h;
+    minutes=m;
+    seconds=s;
+}
+
+void Time :: show_time()
+{
+    cout << hours << ":" << minutes << ":" << seconds << endl;
+}
+
+void Time :: add(Time t1, Time t2)
+{
+    hours=t1.hours+t2.hours;
+    minutes=t1.minutes+t2.minutes;
+    seconds=t1.seconds+t2.seconds;
+    if(seconds > 60)
+    {
+        minutes=minutes+(seconds/60);
+        seconds=seconds%60;
+    }
+    if(minutes > 60)
+    {
+        hours=hours+(minutes/60);
+        minutes=minutes%60;
+    }
+}
+
+int main()
+{
+    Time t1,t4;
+    t1.show_time();
+    Time t2 (50,50,50);
+    t2.show_time();
+    Time t3 (15,15,15);
+    t3.show_time();
+    t4.add(t2,t3);
+    t4.show_time();
+}
+
+
+
+
+// Create  a  class  called  Time  that  has  separate  int  memb
+// er  data  for  hours,  minutes,  and 
+// seconds.  One 
+// constr
+// uctor  should  initialize  this  data  to  0,  and  another  should  initialize  it
+// to  fixed  values.  Another 
+// member  function
+// should  display  it,  in  11:59:59  format.  The  final
+// member  function  should  add  two 
+// objects of type Time passed as arguments.
+// A main() program sho
+// uld create two initialized Time objects 
+// (should  they  be  const  ?)  and
+// one that isn’t initialized. Then it should add the two initialized values 
+// together,  leaving  the
+// result  in  the  third  Time  variable.  Finally  it  should  display  the  value  of  this  third 
+// variab
+// le.Make appropriate member functions const

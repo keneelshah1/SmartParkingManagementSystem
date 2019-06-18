@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+float calculate_area(float);                     // circle
+float calculate_area(float, float);       // rectangle
+double calculate_area(double, double);    // triangle
+double calculate_area(double);                     // square
+
+int main()
+{
+    float radius, length, breadth;
+    double breadt, height, side;
+   
+    cout << "ENTER RADIUS FOR AREA OF CIRCLE" << endl;
+    cin >> radius;
+    calculate_area(radius);
+
+    cout << "ENTER RADIUS FOR AREA OF RECTANGLE" << endl;
+    cin >> length >> breadth;
+    calculate_area(length,breadth);
+   
+    cout << "ENTER RADIUS FOR AREA OF TRIANGLE" << endl;
+    cin >> breadt >> height;
+    calculate_area(breadt,height);
+
+    cout << "ENTER RADIUS FOR AREA OF SQUARE" << endl;
+    cin >> side;
+    calculate_area(side);
+
+    return 0;
+}
+
+float calculate_area(float radius)
+{
+    cout << (3.14*radius*radius) << endl;
+}
+
+float calculate_area(float length, float bredth)
+{
+    cout << (length*bredth) << endl;
+}
+
+double calculate_area(double breadth, double height)
+{
+    cout << (0.5*breadth*height) << endl;
+}
+
+double calculate_area(double side)
+{
+    cout << (side*side) << endl;
+}

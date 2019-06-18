@@ -1,0 +1,105 @@
+#include<iostream>
+using namespace std;
+
+class person
+{
+    protected:
+    string name;
+    int code;
+    public:
+    void get_person()
+    {
+        cout << "Enter name and code" << endl;
+        cin >> name >> code;
+    }
+    void print_person()
+    {
+        cout << "Name : " << name << endl;
+        cout << "Code : " << code << endl;
+    }
+};
+
+class account : public virtual person
+{
+    protected:
+    float pay;
+    public:
+    void get_account()
+    {
+        cout << "Enter Pay" << endl;
+        cin >> pay;
+    }
+
+    void print_account()
+    {
+        cout << "Pay : " << pay << endl;
+    }
+};
+
+class admin : public virtual person
+{
+    protected:
+    float experience;
+    public:
+    void get_admin()
+    {
+        cout << "Enter exp" << endl;
+        cin >> experience;
+    }
+
+    void print_admin()
+    {
+        cout << "exp : " << experience << endl;
+    }
+};
+
+class employee : public account,public admin
+{
+    public:
+    void get_data()
+    {
+        get_person();
+        get_account();
+        get_admin();
+    }
+
+    void print_data()
+    {
+        print_person();
+        print_account();
+        print_admin();
+    }
+    void update()
+    {
+        int choice;
+        cout << "What do you want to update \npress 1 for name\npress 2 for code\n press 3 for pay\n press 4 for exp\npress anything for nothing" << endl;
+        cin >> choice;
+        switch(choice)
+        {
+            case 1:
+            cin >> name;
+            break;
+            case 2:
+            cin >> code;
+            break;
+            case 3:
+            cin >> pay;
+            break;
+            case 4:
+            cin >> experience;
+            break;
+            default:
+            return;
+        }
+    }
+};
+
+int main()
+{
+    employee e;
+    e.get_data();
+    e.print_data();
+    e.update();
+    cout << "\nUpdated\n" << endl;
+    e.print_data();
+}

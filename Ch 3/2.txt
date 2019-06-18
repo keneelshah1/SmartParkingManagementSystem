@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+
+double power(double n,int p=2);
+
+int main()
+{
+    double n,powe;
+    int p;
+
+    cout << "ENTER VALUE OF n :  " << endl;
+    cin >> n;
+
+    cout << "ENTER VALUE OF p :  " << endl;
+    cin >> p;
+
+    powe=power(n);
+
+    cout << "OMITTING ARGUMENT :  " << powe <<endl;
+
+    powe=power(n,p);
+
+    cout << "USING ALL ARGUMENT :  " << powe <<endl;
+    
+    return 0;
+}
+
+double power (double n, int p)
+{
+    int i;
+    double powe=1;
+    for(i=0;i<p;i++)
+        powe=powe*n;
+    return powe;
+}

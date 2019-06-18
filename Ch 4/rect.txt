@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+class rectangle
+{
+    float length, width;
+
+    public:
+    
+    void read()
+    {
+        cout << "ENTER LENGTH AND WIDTH" << endl;
+        cin >> length >> width;
+    } 
+
+    void write()
+    {
+        cout << "PARIMETER : " << 2*(length+width) << endl;
+        cout << "AREA : " << length*width << endl;
+    }
+};
+
+int main()
+{
+    class rectangle d1;
+    d1.read();
+    d1.write();
+}

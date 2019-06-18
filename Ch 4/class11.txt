@@ -1,0 +1,75 @@
+// Create a class rational which represents a numerical value by two double values- NUMERATOR & DENOMINATOR. Include the following public member  Functions: constructor with no arguments (default), constructor with two arguments, void reduce( ) that reduces the rational number by eliminating the highest, common factor between the numerator and denominator,  
+//Overload + operator to add two rational number
+//Overload >> operator to enable input through cin.
+// Overload << operator to enable output through cout.
+// Write a main ( ) to test all the functions in the class.
+#include<iostream>
+using namespace std;
+
+class rational
+{
+    double numerator, denominator;
+    public:
+    rational();
+    rational(double,double);
+    void reduce();
+    rational operator +(rational r);
+    friend void operator >> (istream &, rational &);
+    friend void operator << (ostream &,rational &);
+};
+
+rational::rational()
+{
+    numerator=0;
+    denominator=0;
+}
+rational::rational(double a, double b)
+{
+    numerator=a;
+    denominator=b;
+}
+void rational::reduce()
+{
+    int temp,x=numerator,y=denominator,z;
+    if (y>z)
+    {
+        temp=y;
+        y=x;
+        x=temp;
+    }
+    do
+    {
+        z=x%y;
+        x=y;
+        y=z;
+    }
+    while (z!=0);
+    numerator/=x;
+    denominator/=x;
+}
+rational rational :: operator + (rational r)
+{
+    rational temp;
+    temp.numerator=numerator+r.numerator;
+    temp.denominator=denominator+r.denominator;
+}
+void operator << (ostream & rout , rational &r)
+{
+    rout << "The rational number is : " << r.numerator << " / " << r.denominator << endl; 
+}
+void operator >> (istream & rin, rational &r)
+{
+    rin >> r.numerator >> r.denominator;
+}
+
+int main()
+{
+    rational r1,r2,r3;
+    cin >> r1;
+    cin>> r2;
+    cin>> r3;
+    r1.reduce();
+    cout << r1;
+    cout << r2;
+    cout << r3;
+}

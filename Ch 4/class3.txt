@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+class bank
+{
+    string name,acctype;
+    static int accno;
+    float balance;
+    
+    public:
+    void account_creation()
+    {
+        cout << "Enter Account Holder Name" << endl;
+        cin >> name;
+        cout << "Enter Account Type" << endl;
+        cin >> acctype;
+        cout << "The New Account Number is" << accno+1 << endl;
+        cout << "Enter the money to deposit" << endl;
+        cin >> balance;
+    }
+    void deposit()
+    {
+        float amount;
+        cout << "Enter the amount to deposit" << endl;
+        cin >> amount;
+        balance=amount+balance;
+        cout << "The new balance : " << balance << endl;
+    }
+    void withdraw()
+    {
+        float amount;
+        cout << "Enter the amount to withdraw" << endl;
+        cin >> amount;
+        if (balance <= amount)
+            cout << "Gareeb hai tu";
+        else
+        {
+            balance=balance-amount;
+            cout << "Are! Wah Transaction completed :" << balance << endl;
+        }
+    }
+    void display()
+    {
+        cout << "Account Number : " << accno+1 << endl;
+        cout << "Account Holder Name : " << name << endl;
+        cout << "Balance : " << balance << endl;
+    }
+};
+
+int bank :: accno=1700;
+int main ()
+{
+    bank test;
+    test.account_creation();
+    test.deposit();
+    test.withdraw();
+    test.display();
+    return 0;
+}

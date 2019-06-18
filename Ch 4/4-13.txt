@@ -1,0 +1,54 @@
+#include<iostream>
+using namespace std;
+class Time
+{
+    int hour,min;
+    public:
+    Time()
+    {
+        hour=0;
+        min=0;
+    }
+    Time(int h,int m)
+    {
+        hour=h;
+        min=m;
+    }
+    void display()
+    {
+        cout<<"\nHours:"<<hour;
+        cout<<"\nMinutes:"<<min;
+    }
+    Time operator +(Time t2)
+    {
+        Time temp;
+        temp.min=min+t2.min;
+        temp.hour=hour+t2.hour+(temp.min/60);
+        temp.min=temp.min%60;
+        return temp;
+    }
+};
+int main()
+{
+    Time T1(1,25),T2(2,30),T;
+    T=T1+T2;
+    cout<<"\n1ST TIME:";
+    T1.display();
+    cout<<"\n2ST TIME:";
+    T2.display();
+    cout<<"\nTotal TIME:";
+    T.display();
+    return 0;
+}
+
+Output
+
+1ST TIME:
+Hours:1
+Minutes:25
+2ST TIME:
+Hours:2
+Minutes:30
+Total TIME:
+Hours:3
+Minutes:55

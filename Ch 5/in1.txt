@@ -1,0 +1,68 @@
+#include<iostream>
+using namespace std;
+
+class student
+{
+    int roll_no;
+    string name;
+    public:
+    void get_student()
+    {
+        cout << "Enter Roll Number and Name" << endl;
+        cin >> roll_no >> name;
+    }
+
+    void print_student()
+    {
+        cout << "Roll No.: " << roll_no << "Name : " << name << endl;
+    }
+};
+
+class test
+{
+    protected:
+    int marks[5];
+    public:
+    void get_marks()
+    {
+        int i;
+        cout << "Enter Marks" << endl;
+        for(i=0;i<5;i++)
+            cin >> marks[i];
+    }
+
+    void print_marks()
+    {
+        int i;
+        for(i=0;i<5;i++)
+            cout << "Subject " << i << " : " << marks[i] <<endl;
+    }
+};
+
+class result : public student, public test
+{
+    float total,percentage;
+    public:
+    void get_result()
+    {
+        get_student();
+        get_marks();
+        total = marks[0] + marks[1] + marks[2] + marks[3] + marks[4];
+        percentage = total/5;
+    }
+
+    void print_result()
+    {
+        print_student();
+        print_marks();
+        cout << "Total : " << total << endl;
+        cout << "Percentage : " << percentage << endl;
+    }
+};
+
+int main()
+{
+    result r;
+    r.get_result();
+    r.print_result();
+}

@@ -1,0 +1,62 @@
+#include<iostream>
+using namespace std;
+class dist
+{
+    int feet,inches;
+    public:
+    void show();
+    dist();
+    dist(int f, int i);
+    //void operator + (dist);
+    //friend void operator + (dist &, dist &);
+    friend dist operator + (dist &, dist &);
+    void friend fix_dist(dist &d);
+};
+
+void dist :: show()
+{
+    cout << feet << " " << inches << endl;
+}
+
+// void dist :: operator + (dist d)
+// {
+//     feet = feet + d.feet;
+//     inches = inches + d.inches;
+// }
+void fix_dist(dist &d)
+{
+    if(d.inches>=12)
+    {
+        d.feet++;
+        d.inches-=12;
+    }
+}
+dist :: dist()
+{
+    feet=0;
+    inches=0;
+}
+
+dist operator + (dist &d1, dist &d2)
+{
+    dist temp;
+    temp.feet=d1.feet+d2.feet;
+    temp.inches=d1.inches+d2.inches;
+    fix_dist(temp);
+    return temp;
+}
+
+dist :: dist(int f, int i)
+{
+    feet = f;
+    inches = i;
+}
+
+int main()
+{
+    dist d1(1,2),d2(15,10),d3;
+    d1.show();
+    d2.show();
+    d3=d1+d2;
+    d3.show();
+}

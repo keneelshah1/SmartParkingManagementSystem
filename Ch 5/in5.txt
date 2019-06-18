@@ -1,0 +1,87 @@
+#include<iostream>
+using namespace std;
+
+class publication
+{
+    string title;
+    float price;
+    public:
+    void getdata()
+    {
+        cout << "Enter title and price" << endl;
+        cin >> title >> price;
+    }
+
+    void putdata()
+    {
+        cout << "Title : " << title << endl;
+        cout << "price : " << price << endl;
+    }
+};
+
+class sales
+{
+    int i;
+    float sales[3];
+    public:
+    void getdata()
+    {
+        cout << "Enter sales of last 3 months" << endl;
+        for(i=0;i<3;i++)
+            cin >> sales[i];
+    }
+    void putdata()
+    {
+        cout << "The sales of last 3 months are : " << endl;
+        for(i=0;i<3;i++)
+            cout << sales[i] << endl; 
+    }
+};
+
+class book : public publication, public sales
+{
+    int page;
+    public:
+    void getdata()
+    {
+        publication :: getdata();
+        cout << "Enter total pages" << endl;
+        cin >> page;
+        sales :: getdata();
+    }
+    void putdata()
+    {
+        publication :: putdata();
+        cout << "Pages : " << page << endl;
+        sales :: putdata();
+    }
+};
+
+class tape : public publication, public sales
+{
+    float play_time;
+    public:
+    void getdata()
+    {
+        publication :: getdata();
+        cout << "Enter Playing Time in Minutes" << endl;
+        cin >> play_time;
+        sales :: getdata();
+    }
+    void putdata()
+    {
+        publication :: putdata();
+        cout << "Play Time : " << play_time << endl;
+        sales :: putdata();
+    }
+};
+
+int main()
+{
+    book b;
+    tape t;
+    b.getdata();
+    b.putdata();
+    t.getdata();
+    t.putdata();
+}

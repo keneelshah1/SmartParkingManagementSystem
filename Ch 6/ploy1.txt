@@ -1,0 +1,62 @@
+#include<iostream>
+using namespace std;
+class father
+{
+    protected:
+    int age;
+    public:
+    father (){age=0;}
+    father (int x)
+    {
+        age=x;
+    }
+    virtual void iam()
+    {
+        cout << "I AM THE FATHER and my age is " << age << endl;
+    }
+};
+
+class son : public father
+{
+    protected:
+    int age;
+    public:
+    son (int x)
+    {
+        age=x;
+    }
+    virtual void iam()
+    {
+        cout << "I AM THE SON and my age is " << age << endl;
+    }
+};
+
+class daughter : public father
+{
+    protected:
+    int age;
+    public:
+    daughter (int x)
+    {
+        age=x;
+    }
+    virtual void iam()
+    {
+        cout << "I AM THE DAUGHTER and my age is " << age << endl;
+    }
+};
+
+int main()
+{
+    father f(50);
+    f.iam();
+    son s(60);
+    s.iam();
+    daughter d(70);
+    d.iam();
+    father *fp;
+    fp=&s;
+    fp->iam();
+    fp=&d;
+    fp->iam();
+}

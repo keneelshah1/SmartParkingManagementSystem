@@ -1,0 +1,60 @@
+#include<iostream>
+using namespace std;
+
+class Time
+{
+    int hours, minutes;
+    public:
+    void settime(int,int);
+    void showtime();
+    void sum(Time,Time);
+    void sub(Time,Time);
+};
+void Time :: settime(int h, int m)
+{
+    hours=h;
+    minutes=m;
+    if(minutes > 60)
+    {
+        hours=hours+(minutes/60);
+        minutes=minutes%60;
+    }
+}
+
+void Time :: showtime()
+{
+    cout << "Hours : " << hours << endl;
+    cout << "Minutes : " << minutes << endl;
+}
+
+void Time :: sum(Time t1, Time t2)
+{
+    hours=t1.hours+t2.hours;
+    minutes=t1.minutes+t2.minutes;
+    if(minutes > 60)
+    {
+        hours=hours+(minutes/60);
+        minutes=minutes%60;
+    }
+}
+void Time :: sub(Time t1,Time t2)
+{
+    hours=t1.hours-t2.hours;
+    minutes=t1.minutes-t2.minutes;
+    if(minutes <= 0)
+    {
+        hours=hours+(minutes/60);
+        minutes=minutes%60;
+    }
+}
+
+int main()
+{
+    Time t1,t2,t3,t4;
+    t1.settime(6,45);
+    t2.settime(7,35);
+    t3.sum(t1,t2);
+    t3.showtime();
+    t4.sub(t1,t2);
+    t4.showtime();
+}

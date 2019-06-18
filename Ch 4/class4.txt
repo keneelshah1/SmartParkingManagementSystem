@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+int count=0;
+class Account
+{
+    string name;
+    int accid=1700;
+    float balance;
+    
+    public:
+
+    float account_creation()
+    {
+        
+        cout << "Enter Account Holder Name" << endl;
+        cin >> name;
+        accid=accid+count;
+        count++;
+        cout << "The New Account Number is" << accid << endl;
+        cout << "Enter the money to deposit" << endl;
+        cin >> balance;
+    }
+    void display()
+    {
+        cout << "Account Number : " << accid << endl;
+        cout << "Account Holder Name : " << name << endl;
+        cout << "Balance : " << balance << endl;
+    }
+    int search(int number)
+    {
+        if(number==accid)
+            return 0;
+        else
+            return 1;
+    }
+};
+
+
+int main ()
+{
+    int i,accno,flag;
+    Account arr[5];
+    
+    for(i=0;i<5;i++)
+        arr[i].account_creation();
+
+    cout << "Enter account number to search" << endl;
+    cin >> accno;
+
+    for(i=0;i<5;i++)
+    {
+        flag=arr[i].search(accno);
+        if(flag==0)
+            break;
+    }
+    if(flag==0)
+    {
+        cout << "Found" << endl;
+        arr[i].display();
+    }
+    else
+        cout << "not found";
+    return 0;
+}

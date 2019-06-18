@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+struct distance
+{
+    float inches,feet;
+};
+
+struct distance grater(struct distance, struct distance);
+
+int main()
+{
+    struct distance d1,d2,retuned;
+
+    cout << "ENTER VALIES FOR DISTANCE 1" << endl;
+    cin >> d1.feet >> d1.inches;
+
+    cout << "ENTER VALIES FOR DISTANCE 2" << endl;
+    cin >> d2.feet >> d2.inches;
+
+    retuned=grater(d1,d2);
+
+    cout << "grater is" << retuned.feet << retuned.inches << endl; 
+}
+
+struct distance grater (struct distance one,struct distance two)
+{
+    if ( (one.inches+(12*one.feet)) > (two.inches+(12*two.feet)) )
+        return one;
+    else 
+        return two;
+}

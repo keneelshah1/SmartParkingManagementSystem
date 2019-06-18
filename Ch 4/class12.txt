@@ -1,0 +1,49 @@
+// // Create a class String, having appropriate data variables. Overload operators += to concatenate 2 strings and == to compare 2 strings. Create constructor to take the string value from main. Write a main ( ) to test all the functions in the class. 
+// #include <iostream>
+// #include <string>
+// using namespace std;
+
+// class String
+// {
+//     string str;
+//     public:
+//     String ();
+//     String (string);
+//     void StringOut();
+//     String operator += (String b);
+//     String operator == (String b);
+// };
+
+// String :: String()
+// {
+//     cin >> str;
+// }
+
+// String :: String (string a)
+// {
+//     str=a;
+// }
+
+// String String:: operator +=(String b)
+// {
+//     strcat(str,b.str);
+// }
+
+// int String:: operator ==(String b)
+// {
+//     if(strcmp(str,b.str))
+//         return 0;
+//     else 
+//         return 1;
+// }
+
+
+// void String :: StringOut()
+// {
+//     cout << str << endl;
+// }
+
+// int main()
+// {
+
+// }

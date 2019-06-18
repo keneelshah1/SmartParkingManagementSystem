@@ -1,0 +1,27 @@
+#include<iostream>
+
+using namespace std;
+
+struct phone
+{
+    int area,exchange,no;
+};
+
+int main()
+{
+    struct phone my_number,your_number;
+
+    my_number.area=405;
+    my_number.exchange=810;
+    my_number.no=6004;
+
+    cout<<"ENTER YOUR PHONE NUMBER BY AREA CODE, EXCHANGE NO., NUMBER\n";
+    
+    cin>>your_number.area>>your_number.exchange>>your_number.no;
+
+    cout<<"\n\nmy number   :"<< my_number.area << " " << my_number.exchange << " " << my_number.no;
+
+    cout<<"\n\nyour number   :"<<your_number.area<< " " <<your_number.exchange<< " " <<your_number.no << "\n";
+    
+    return 0;
+}

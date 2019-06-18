@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+
+class circle
+{
+    protected:
+    float radius;
+    public:
+    void get_radius()
+    {
+        cout << "Enter Radius : " << endl;
+        cin >> radius;
+    }
+
+    void area()
+    {
+        cout << "area : " << 3.14*radius*radius << endl;
+    }
+};
+
+class cylinder : public circle
+{
+    float height;
+    public:
+    void get_height()
+    {
+        get_radius();
+        cout << "Enter height : " << endl;
+        cin >> height; 
+    }
+
+    void volume()
+    {
+        area();
+        cout << "Volume : " << 3.14*radius*radius*height;
+    }
+};
+
+int main()
+{
+    cylinder c;
+    c.get_height();
+    c.volume();
+}

@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+class shape
+{
+    protected:
+    double one, two;
+    public:
+    void get(double v1, double v2)
+    {
+        one=v1;
+        two=v2;
+    }
+    virtual void area()
+    {
+        cout << "area shape = 0" << endl;
+    }
+};
+
+class triangle : public shape
+{
+    public:
+    void area()
+    {
+        cout << "area triangle = " << 0.5*one*two << endl;
+    }
+};
+
+class rectangle : public shape
+{
+    public:
+    void area()
+    {
+        cout << "area rectangle = " << one*two << endl;
+    }
+};
+
+int main()
+{
+    shape *s1;
+    triangle t1;
+    s1=&t1;
+    s1->get(15,15);
+    s1->area();
+    rectangle r1;
+    s1=&r1;
+    s1->get(15,15);
+    s1->area();
+}

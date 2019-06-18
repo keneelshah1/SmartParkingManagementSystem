@@ -1,0 +1,68 @@
+// Consider the above Distance class. Make the overloaded + operator so that expressions like d2=d1+10.0 as well as d2=10.0+d1 can be evaluated. Write a main program to test this class. 
+#include<iostream>
+using namespace std;
+class dist
+{
+    int feet,inches;
+    public:
+    void show();
+    void fix_dist();
+    dist();
+    dist(int f, int i);
+    friend dist operator + (dist d, float f);
+    friend dist operator + (float f, dist d);
+};
+dist :: dist()
+{
+    feet=0;
+    inches=0;
+}
+
+dist :: dist(int f, int i)
+{
+    feet=f;
+    inches=i;
+}
+
+dist operator + (dist d,float f)
+{
+    dist temp;
+    temp.inches=d.inches;
+    temp.feet=d.feet+f;
+    temp.fix_dist();
+    return temp;
+}
+
+dist operator + (float f,dist d)
+{
+    dist temp;
+    temp.inches=d.inches;
+    temp.feet=d.feet+f;
+    temp.fix_dist();
+    return temp;
+}
+
+void dist :: show()
+{
+    cout << feet << " " << inches << endl;
+}
+
+void dist :: fix_dist()
+{
+    if(inches>=12)
+    {
+        feet++;
+        inches-=12;
+    }
+}
+
+int main()
+{
+    dist d1(10,15),d2(12,13);
+    //d1.fix_dist();
+    //d2.fix_dist();
+    dist d3=d2+12;
+    d3.show();
+    dist d4=15+d2;
+    d4.show();
+}

@@ -1,0 +1,64 @@
+#include<iostream>
+using namespace std;
+
+class publication
+{
+    string title;
+    float price;
+    public:
+    void getdata()
+    {
+        cout << "Enter title and price" << endl;
+        cin >> title >> price;
+    }
+
+    void putdata()
+    {
+        cout << "Title : " << title << endl;
+        cout << "price : " << price << endl;
+    }
+};
+
+class book : public publication
+{
+    int page;
+    public:
+    void getdata()
+    {
+        publication :: getdata();
+        cout << "Enter total pages" << endl;
+        cin >> page;
+    }
+    void putdata()
+    {
+        publication :: putdata();
+        cout << "Pages : " << page << endl;
+    }
+};
+
+class tape : public publication
+{
+    float play_time;
+    public:
+    void getdata()
+    {
+        publication :: getdata();
+        cout << "Enter Playing Time in Minutes" << endl;
+        cin >> play_time;
+    }
+    void putdata()
+    {
+        publication :: putdata();
+        cout << "Play Time : " << play_time << endl;
+    }
+};
+
+int main()
+{
+    book b;
+    tape t;
+    b.getdata();
+    b.putdata();
+    t.getdata();
+    t.putdata();
+}
